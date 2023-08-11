@@ -1,0 +1,15 @@
+{
+    "autoload": {
+        "psr-4": {
+            "app\\Controllers\\": "app/Controllers",
+            "app\\Models\\": "app/Models",
+            "core\\": "core"
+        },
+
+        "files": ["bootstrap/app.php"]
+    },
+    "require": {
+        "ext-pdo": "*",
+        "eftec/bladeone": "^4.9"
+    }
+}
