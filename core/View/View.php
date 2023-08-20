@@ -2,26 +2,30 @@
 
 namespace core\View;
 
+use eftec\bladeone\BladeOne;
+use Exception;
+
 class View
 {
-    protected array $data = array(); // Данные для отображения
-    private mixed $template;
+    protected BladeOne $blade;
 
-    public function __construct($template) {
-        $this->template = $template;
-    }
-
-    public function assign($key, $value): void
+    public function __construct()
     {
-        $this->data[$key] = $value;
+        // Указываем путь к папке с проектом
+        $projectPath = realpath(__DIR__ . '/../..');
+
+        // Устанавливаем пути к директориям относительно папки с проектом
+        $views = $projectPath . '/resource/views';
+        $cache = $projectPath . '/storage/cache';
+
+        $this->blade = new BladeOne($views, $cache, BladeOne::MODE_AUTO);
     }
 
-    public function render(): bool|string
+    /**
+     * @throws Exception
+     */
+    public function render($template, $data = []): string
     {
-        extract($this->data); // Преобразование массива данных в переменные
-        ob_start(); // Начало буферизации вывода
-        include $this->template; // Подключение шаблона
-        return ob_get_clean();
+        return $this->blade->run($template, $data);
     }
-
 }

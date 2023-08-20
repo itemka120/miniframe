@@ -3,14 +3,41 @@
 namespace app\Controllers;
 
 
+use core\View\View;
 
 class HomeController extends Controller {
-    public function index()
+    /**
+     * @throws \Exception
+     */
+    public function index(): void
     {
-        $title = 'Home Page';
-        $data = [$title => 'title'];
+        $view = new View();
 
-        return view('index', $data);
+        $content = 'Content';
+
+        $data = [
+            'title' => 'Home',
+            'content' => $content,
+        ];
+
+        echo $view->render('index', $data);
+    }
+
+    /**
+     * @throws \Exception
+     */
+    public function contact(): void
+    {
+        $view = new View();
+
+        $content = 'Content';
+
+        $data = [
+            'title' => 'Contact',
+            'content' => $content,
+        ];
+
+        echo $view->render('contact', $data);
     }
 
 }
