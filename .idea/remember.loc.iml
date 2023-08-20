@@ -9,6 +9,7 @@
       <sourceFolder url="file://$MODULE_DIR$/core" isTestSource="false" packagePrefix="core\" />
       <excludeFolder url="file://$MODULE_DIR$/vendor" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/eftec/bladeone" />
+      <excludeFolder url="file://$MODULE_DIR$/resource/vendor" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
