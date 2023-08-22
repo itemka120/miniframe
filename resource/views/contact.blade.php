@@ -1,6 +1,6 @@
 <!--Show's in layout.master file-->
 @extends('layout.master')
-<!--title-->
+<!--your title-->
 @section('title')
     {{ $title }}
 @endsection
